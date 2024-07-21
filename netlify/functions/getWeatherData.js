@@ -1,6 +1,5 @@
 import dotenv from "dotenv";
 import axios from "axios";
-import { error } from "console";
 
 dotenv.config();
 
@@ -14,14 +13,20 @@ export const handler = async (event) => {
     let response = await axios.get(url);
     console.log(response.data);
     return {
-      error: null,
-      data: data,
+      statusCode: 200,
+      body: JSON.stringify({
+        error: null,
+        data: response.data,
+      }),
     };
   } catch (error) {
     console.log(error.message);
     return {
-      error: error.message,
-      data: null,
+      statusCode: 400,
+      body: JSON.stringify({
+        error: error.message,
+        data: null,
+      }),
     };
   }
 };
