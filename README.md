@@ -6,7 +6,7 @@ Local setup steps:
 
 ```
 [build]
-	command = "npm run build" //specifies the command that Netlify runs to build your site before deployment
+	command = "# no command" //specifies the command that Netlify runs to build your site before deployment, not needed because node_bundler is specified below
 	functions = "netlify/functions" //specifies the directory where your Netlify Functions are located
 	publish = "public" //specifies the  directory that Netlify will serve as your website
 
